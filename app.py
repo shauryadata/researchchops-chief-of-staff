@@ -699,6 +699,35 @@ st.caption("Paste paper + rubric + reviewer comments → generate plan, experime
 if not API_KEY:
     st.error("OPENAI_API_KEY not found. Add it to your .env file and restart Streamlit.")
 
+st.markdown(
+    """
+    <style>
+    /* Streamlit app main scroll container */
+    section[data-testid="stSidebar"] + section main {
+        overflow: auto;
+    }
+
+    /* Make the Tabs bar sticky within Streamlit's scroll container */
+    div[data-testid="stTabs"] {
+        position: sticky;
+        top: 0.75rem;      /* adjust if it overlaps */
+        z-index: 9999;
+        background: #0e1117;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    }
+
+    /* Reduce extra whitespace above tabs */
+    div[data-testid="stTabs"] + div {
+        margin-top: 0.5rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # ✅ FINAL tab layout (fixed indices)
 tabs = st.tabs([
     "Inputs",
