@@ -177,6 +177,27 @@ st.set_page_config(
     layout="wide",
 )
 
+st.markdown(
+    """
+    <style>
+    /* Sticky header/tabs container */
+    div[data-testid="stTabs"] {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: #0e1117; /* match Streamlit dark bg */
+        padding-top: 0.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Make the tab row look clean when sticky */
+    div[data-testid="stTabs"] button {
+        font-weight: 600;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 # ============================================================
 # State
